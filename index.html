@@ -4,9 +4,32 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>javaScript learning</title>
 </head>
 <body>
-  <script src="./script/index.js"></script>
+  <!-- если у пользователя не включен по умолчанию JS -->
+  <noscript>Подключите в браузере javaScript</noscript>
+  <script>
+    // команда вывода через JS, выводит тест после закрывающего тега script
+    document.write("Вывод текста через метод write");
+    document.write('<img src="./image-card1.jpg">');
+    // вывод в консоль
+    console.log('вывод текста через консоль');
+    // также через другой метод
+    console.info("Вывод текста через консоль");
+    // самостоятельный вывод ошибки
+    console.error('вывод текста ошибки через консоль');
+    // вывод уведомления
+    console.warn('вывод текста уведомления через консоль');
+    // находим тег body и присваеваем ему переменную
+    let tegAdd = document.querySelector('body');
+    // добавляем после открывающего тега body тег h1 со значением
+    tegAdd.insertAdjacentHTML('afterbegin', '<h1 class="title">Title</h1>');
+    
+  </script>
+  <script src="./script/переменные.js"></script>
+  <script src="./script/типы-данных.js"></script>
+  <script src="./script/математические-действия.js"></script>
+  <script src="./script/массивы.js"></script>
 </body>
 </html>
