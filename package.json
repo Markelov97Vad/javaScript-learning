@@ -1,0 +1,24 @@
+{
+  "name": "javascript-learning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "css-to-bem-file-structure style.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Markelov97Vad/javaScript-learning.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Markelov97Vad/javaScript-learning/issues"
+  },
+  "homepage": "https://github.com/Markelov97Vad/javaScript-learning#readme",
+  "devDependencies": {
+    "css-to-bem-file-structure": "^0.0.2"
+  }
+}

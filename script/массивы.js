@@ -34,3 +34,11 @@ let bigArr = [
 bigArr[2][2] = 'newString';
 // Показать весь список 
 console.log(bigArr);
+
+// Добавить массив, который нельзя по новой объявить
+const brothers = ["Вадим", "Саша"];
+brothers.push('Дима'); // метод который добавляет в конец списка
+brothers.pop(); //метод который извлекает из конца списка 
+brothers.shift() // извлекает элемент из начала
+brothers.unshift('Вадим') // добавляет элементы в начало.
+console.log(brothers);
