@@ -1,7 +1,7 @@
 // Функция parseInt
-let age = '37 лет, 8 месяцев и 10 дней';
+let age1 = '37 лет, 8 месяцев и 10 дней';
 
-console.log(parseInt(age)); // 37 
+console.log(parseInt(age1)); // 37 
 parseInt('Метро 2033'); // NaN 
 parseInt('38 попугаев'); // 38
 parseInt('454545', 10); // переведет строку в число: (10) - десятеричная система счисления
