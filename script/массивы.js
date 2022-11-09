@@ -150,6 +150,17 @@ const child = document.querySelectorAll('.user__name');
 const family = Array.from(child);
 console.log(family);
 
+//
+
+const sectionElem = document.querySelector('.profile');
+const navElem = document.querySelectorAll('.profile__nav');
+const navArrElem = Array.from(navElem);
+
+const addNewClass = navArrElem.map((elem) => {
+  elem.classList.add('ptifile__nav_add-background');
+});
+console.log(addNewClass);
+
 //                          Обход массива: метод forEach
 
 const brand = ['Puma', 'Adidas', 'Nike'];
@@ -204,3 +215,57 @@ console.log(tweetsTextOnly);
 tweetsTextOnly.forEach(function (el) {
   console.log(el);
 });
+
+// Пример если не указать return
+const firstArr = [0, 1, 2, 3, 4];
+
+const secondArr = firstArr.map(function (elem) {
+    console.log('Это сообщение будет выведено пять раз');
+});
+console.log(secondArr);
+
+
+//                         Второй аргумент, ИНДЕКС текущего цикла 
+const counter = [
+  'Царь',
+  'Царевич',
+  'Король',
+  'Королевич',
+  'Сапожник',
+  'Портной'
+];
+//                                                   index - счетчик, Его можно использовать, например, для расстановки позиций в списке:
+const counterIndexed = counter.map(function (person, index) {
+    return `${index + 2}) ${person}`;
+});
+
+console.log(counterIndexed);
+
+//                      Третий аргумент, Исходный массив
+
+const ivans = [
+  'Иван I Калита',
+  'Иван II  Красный',
+  'Иван III Великий',
+  'Иван IV Грозный',
+  'Иван V',
+  'Иван VI'
+];
+//                                                   array - Исходный массив как аргумент пригодится, когда нужно обратиться к свойствам этого исходного массива:
+const ivansIndexed = ivans.map(function(item, index, array) {
+  const currentIndex = `(${(index + 1)} из ${array.length})`;
+  return `${item} ${currentIndex}`;
+});
+
+console.log(ivansIndexed);
+
+/*
+[
+  "Иван I Калита (1 из 6)",
+  "Иван II  Красный (2 из 6)",
+  "Иван III Великий (3 из 6)",
+  "Иван IV Грозный (4 из 6)",
+  "Иван V (5 из 6)",
+  "Иван VI (6 из 6)"
+]
+*/
