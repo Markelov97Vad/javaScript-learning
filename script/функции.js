@@ -7,6 +7,7 @@ function sayHello() {
 
 // вызываем её
 sayHello(); // "Привет" 
+// Код функции не отработает, если она не вызвана.
 
 // Пример
 
@@ -52,7 +53,7 @@ function callMeToo() {
 callMe(); // Internet8000
 callMeToo(); // Internet9000 
 
-// Пример
+// // // // // Пример
 
 // здесь глобальная область видимости
 
@@ -63,7 +64,7 @@ function callMe() {
 
   let b = 2; // это локальная переменная функции callMe
 } 
-
+// // // // //
 // Пример
 
 const w = 1;
@@ -84,7 +85,6 @@ function callMe() {
 }
 
 callMe();
-
 // 1 
 // 2
 // 3 
@@ -180,7 +180,7 @@ const double = function (num) {
   return num * 2;
 }; 
 */
-
+// /////////////
 // Function Declaration
 function double(num) {
   return num * 2;
@@ -193,7 +193,7 @@ const triple = function (num) {
 
 double(2); // 4
 triple(2); // 6 
-
+////////////////
 //
 function createFunction() {
   function simpleFunction() {
@@ -218,7 +218,20 @@ function makeHelloWorld() {
   }
   return helloWorld;
 };
-
+console.log(makeHelloWorld());
 const dropFunc = makeHelloWorld();
-dropFunc();
+dropFunc(); // 'Hello World!'
+
+//                                                 Функции — это значения
+
+// Записываем функцию в переменную
+const multiply = function (a, b) {
+  return a * b;
+};
+
+multiply(2, 3); // 6
+
+// передаём функцию как аргумент
+const result = [1, 2, 3].reduce(multiply);
+console.log(result); // 6 - произведение всех чисел в массиве 
 
