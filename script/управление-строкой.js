@@ -66,3 +66,5 @@ const myName = /*prompt */('Как Вас зовут?', '');
 // или
 console.log('Здравствуйте, ' + myName[0].toUpperCase() + myName.slice(1));
 
+
+

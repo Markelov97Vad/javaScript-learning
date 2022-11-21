@@ -98,9 +98,6 @@ console.log(numsArrFrom)
 // [0, 2, 4, 6]
 
 
-
-//                                                        🧰 Массив из Set 🧰 
-
 const uniqueNumbers = new Set()
 uniqueNumbers.add(1)
 uniqueNumbers.add(2)
@@ -108,7 +105,6 @@ uniqueNumbers.add(3)
 
 const arrUniqueNumbers = Array.from(uniqueNumbers)
 // [1, 2, 3]
-
 
 // Получение ✅
 const listString = "string";
