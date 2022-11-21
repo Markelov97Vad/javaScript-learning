@@ -199,3 +199,19 @@ function isPrime(num) {
 console.log(integersToCheck.every(isPrime));
 
 
+// Создать массив от 0 до 1000
+
+const bigNumArr = [];
+
+for(let i = 0; i <= 1000; i++) {
+  bigNumArr.push(i);
+}
+//console.log(bigNumArr);
+
+// Создадим массив чётных чисел от 0 до 1000:
+
+const evenNumbers = []
+for (let i = 0; i <= 1000; i += 2) {
+  evenNumbers.push(i)
+}
+

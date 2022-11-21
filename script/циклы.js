@@ -43,13 +43,14 @@ let sum = 0; // создадим переменную, где будем хра�
 for (let i = 0; i < arrСycle.length; i += 1) {
   sum += arrСycle[i];
 }
-
 console.log("вывод2: " + sum);
 
-const testArr = [2, 3, 4, 5, 10];
- let num12 = 0;
-for ( let i = 0; i < testArr.length; i+= 1) {
-  num12 = num12 + testArr[i];
-}
 
+const testArr = [2, 3, 4, 5, 10];
+let num12 = 0;
+for ( let i = 0; i < testArr.length; i+= 1) {
+  //              массив[элемент массива]
+  num12 = num12 + testArr[i];
+  console.log(testArr[i]);
+}
 console.log("вывод3: " + num12);

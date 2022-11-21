@@ -54,8 +54,18 @@
         <p class="user__name">третий</p>
       </div>
     </div>
+  </template>
 
-  </template> 
+  <template id="cardTemplate">
+    <article class="element">
+      <button class="element__delete-button" type="button" aria-label="delete card"></button>
+      <img src="#" alt="#" class="element__image">
+      <div class="element__info">
+        <h2 class="element__title"></h2>
+        <button type="button" class="element__button" aria-label="mark like"></button>
+      </div>
+    </article>
+  </template>
   <!-- если у пользователя не включен по умолчанию JS -->
   <noscript>Подключите в браузере javaScript</noscript>
   <script>
@@ -90,7 +100,8 @@
   <script src="./script/массивы/sort.js"></script>
   <script src="./script/массивы/concat.js"></script>
   <script src="./script/массивы/join.js"></script>
-  <script src="./script/массивы/slise.js"></script>
+  <script src="./script/массивы/slice.js"></script>
+  <script src="./script/массивы/splice.js"></script>
   <script src="./script/управление-строкой.js"></script>
   <script src="./script/преобразование-типов.js"></script>
   <script src="./script/логические-операторы.js"></script>

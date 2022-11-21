@@ -54,6 +54,17 @@ deletButton.addEventListener('click', function() {
   varButton.remove();
 })
 
+//                                                       closest
+//  Он возвращает ближайший родительский элемент с переданным селектором.
+
+// пример
+//// события для лайка
+
+const likeCard = evt => {
+  evt.target.closest('.element__button').classList.toggle('element__button_active');
+};
+// найдет ближайший елемент(.element__button) и добавит туда класс (element__button_active);
+
 //                                               Клонирование элементов
 
 // //клонировать элемент вместе со всем его содержимым
