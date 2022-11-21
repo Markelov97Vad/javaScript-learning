@@ -1,17 +1,19 @@
-//Создание пустого массива
+//                                                          🔷МАССИВ🔷
+
+//Создание пустого массива✅
 const emptyArr = [];
-// Более сложный метод
+// Более сложный метод✅
 const arr = new Array(56, "string");
-// Более простой метод
+// Более простой метод✅
 const easyArr = [44, "string", true, 0, -55];
-// Поиск элемента по индексу
+// Поиск элемента по индексу✅
 easyArr[2];
-// Присвоить другой элемент списку
+// Присвоить другой элемент списку✅
 easyArr[2] = false;
-// Длинна массива
+// Длинна массива ✅
 easyArr.length;
 
-//                                                Многомерные массивы
+//                                              🧰 Многомерные массивы 🧰
 
 let arr1 = ["str", 34, -4, null];
 let arr2 = [4000000, Object, undefined, "str"];
@@ -46,8 +48,7 @@ console.log(brothers);
 
 
 
-//                                          Array.from создаёт массив из «массивоподобного» объекта:
-
+//                                         🧰 Array.from создаёт массив из «массивоподобного» объекта: 🧰
 
 
 const parent = document.querySelector(".users-online");
@@ -56,7 +57,7 @@ const child = document.querySelectorAll(".user__name");
 const family = Array.from(child);
 console.log(family);
 
-//
+// ✅
 
 const sectionElem = document.querySelector(".profile");
 const navElem = document.querySelectorAll(".profile__nav");
@@ -67,9 +68,49 @@ const addNewClass = navArrElem.map((elem) => {
 });
 console.log(addNewClass);
 
+// ✅ Массив из строки 
+
+const stringArr = Array.from('Markelov');
+console.log(stringArr);
+
+// ✅ пример
+
+const namePerson = 'Mike'
+const spacedLetters = Array.from(namePerson).map(function (letter) {
+    return `*${letter}*`
+})
+
+console.log(spacedLetters)
+// ['*M*', '*i*', '*k*', '*e*']
+
+// также можно ✅
+const nameperson2 = 'Mike'
+const spacedLetters2 = Array.from(nameperson2, function(letter) { return `*${letter}*` })
+
+// 🛠 Можно использовать Array.from(), чтобы генерировать последовательности значений без использования классического цикла for. ✅
+
+const numsArrFrom = Array.from({length: 4}, function(value, index) {
+  // value будет undefined
+  return index * 2
+})
+
+console.log(numsArrFrom)
+// [0, 2, 4, 6]
 
 
-// Получение
+
+//                                                        🧰 Массив из Set 🧰 
+
+const uniqueNumbers = new Set()
+uniqueNumbers.add(1)
+uniqueNumbers.add(2)
+uniqueNumbers.add(3)
+
+const arrUniqueNumbers = Array.from(uniqueNumbers)
+// [1, 2, 3]
+
+
+// Получение ✅
 const listString = "string";
 const tweets = [
   {
@@ -105,7 +146,7 @@ const filteredTweets = tweets.filter(function (item) {
 });
 console.log(filteredTweets);
 
-// Пример если не указать return
+// Пример если не указать return ✅
 const firstArr = [0, 1, 2, 3, 4];
 
 const secondArr = firstArr.map(function (elem) {
@@ -115,7 +156,7 @@ console.log(secondArr);
 
 
 
-//                                           Второй аргумент, ИНДЕКС текущего цикла
+//                                          🧰 Второй аргумент, ИНДЕКС текущего цикла 🧰
 //  Первый параметр считывается как текущий элемент, второй — как его индекс.
 
 const counter = [
@@ -133,7 +174,7 @@ const counterIndexed = counter.map(function (person, index) {
 
 console.log(counterIndexed);
 
-//                                                Третий аргумент, Исходный массив
+//                                               🧰 Третий аргумент, Исходный массив 🧰
 
 const ivans = [
   "Иван I Калита",
@@ -161,7 +202,7 @@ console.log(ivansIndexed);
 */
 
 
-//
+// ✅
 
 const person = ['Гав-гав', 'Незнайка', 'Бармaлей', 'Леопольд', 'Хоттабыч'];
 
@@ -171,7 +212,7 @@ const incorrectWord = person.find(function (item) {
 
 console.log(incorrectWord);
 
-// пример поиска натуральных чисел 
+// пример поиска натуральных чисел ✅
 // дан массив чисел
 const integersToCheck = [2, 0, -1, 3, 193, 79, 7, 29];
 
@@ -199,7 +240,7 @@ function isPrime(num) {
 console.log(integersToCheck.every(isPrime));
 
 
-// Создать массив от 0 до 1000
+// 🎀  Создать массив от 0 до 1000 ✅ 
 
 const bigNumArr = [];
 
@@ -208,10 +249,9 @@ for(let i = 0; i <= 1000; i++) {
 }
 //console.log(bigNumArr);
 
-// Создадим массив чётных чисел от 0 до 1000:
+// 🎀  Создадим массив чётных чисел от 0 до 1000: ✅
 
 const evenNumbers = []
 for (let i = 0; i <= 1000; i += 2) {
   evenNumbers.push(i)
 }
-
