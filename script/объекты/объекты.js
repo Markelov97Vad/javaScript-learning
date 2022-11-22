@@ -59,7 +59,8 @@ const mom = 'мама';
 
 human.mama = mom;
 
-console.log(human.mama); // "мама" 
+console.log(human.mama); // "мама"
+console.log(human);
 
 // 🧰 Если переменную после этого переопределить, свойство останется прежним: 🧰
 let friend = 'друг';
@@ -168,11 +169,12 @@ console.log(birthday.lena.month); // "апрель"
 console.log(birthday['lena']['month']); // "апрель"
 
 let t = 'vadim';
-let p = 'month';
+let p = 'mon';
 
 birthday[t][p] = 'декабрь'
 
 console.log(birthday.vadim.month); // 'декабрь'
+console.log(birthday);
 
 birthday['саша'] = 'июнь';
 birthday['day'] = '6';
@@ -257,3 +259,33 @@ const windows = {
 windowNumber = windows[yourNumber] || 0;
 
 console.log(windowNumber); // 0
+
+// ✅
+
+let jackSparrow = 'Джек Воробей';
+let captain = jackSparrow;
+
+console.log(`Одна переменная: ${jackSparrow}, вторая переменная: ${captain}`);
+// Одна переменная: Джек Воробей, вторая переменная: Джек Воробей
+
+captain = `Капитан ${jackSparrow}`;
+
+console.log(`Одна переменная: ${jackSparrow}, вторая переменная: ${captain}`);
+// Одна переменная: Джек Воробей, вторая переменная: Капитан Джек Воробей
+
+
+// ✅
+
+const firstPirate = {
+  name: 'Джек',
+  nickName: 'Воробей',
+};
+
+const secondPirate = firstPirate;
+secondPirate.rank = 'Капитан';
+
+console.log(firstPirate);
+// { name: "Джек", nickName: "Воробей", rank: "Капитан" }
+
+console.log(secondPirate);
+// { name: "Джек", nickName: "Воробей", rank: "Капитан" } 
