@@ -121,7 +121,9 @@ function swap(obj) {
 
   // добавьте в res ключи и значения obj, поменяв их местами
 Object.keys(obj).forEach( item => {
+  //        myObj[fitst] // 1
   let col = obj[item];
+  // {}[1]  // first
   res[col] = item;
 });
   return res;
@@ -135,3 +137,86 @@ const myObj = {
 
 console.log(myObj); // { first: 1, second: 2, third: 3 }
 console.log(swap(myObj)); // { 1: "first", 2: "second", 3: "third" }
+
+// ✅ функция копирования объектов
+
+function copy(obj) {
+  // напишите свой код здесь
+  const res = {};
+  
+  Object.keys(obj).forEach(function (key) {
+//{}[one]/one=  1 // one: 1,
+    res[key] = obj[key];
+  });
+  return res;
+}
+
+const firstObj = {
+	one: 1,
+	two: 2,
+	three: 3
+};
+
+const secondObj = firstObj;
+const thirdObj = copy(firstObj);
+
+console.log(firstObj); // { one: 1, three: 3, two: 2 }
+console.log(secondObj); // { one: 1, three: 3, two: 2 }
+console.log(thirdObj); // { one: 1, three: 3, two: 2 }
+
+firstObj.four = 4;
+
+console.log(firstObj); // { four: 4, one: 1, three: 3, two: 2 }
+console.log(secondObj); // { four: 4, one: 1, three: 3, two: 2 }
+
+// thirdObj не изменился
+console.log(thirdObj); // { one: 1, three: 3, two: 2 }
+
+//                    🧰 Поверхностное копирование объектов  Object.assign 🧰
+
+const firstObjTest = {
+  din: 1,
+  don: 2
+};
+
+const secondObjTest = Object.assign({}, firstObjTest);
+console.log(secondObjTest);
+console.log(secondObjTest === firstObjTest); // false 
+
+const tutObj = {
+  'первый пошел': true,
+  'второй пошел': 2022,
+  сюрприз: {
+    0: 'тоже число'
+  }
+}
+
+const tamObj = Object.assign({}, tutObj);
+
+console.log(tutObj['второй пошел'] === tamObj['второй пошел']); // true
+console.log(tutObj["сюрприз"] === tamObj["сюрприз"]); // true
+
+// ✅ Функция которая создавет новый объект-копию и уже туда записывает новое свойство.
+
+function evolution(obj, key, value) {
+  const newObj = Object.assign({}, obj);
+  newObj[key] = value;
+  return newObj;
+}
+
+const fish = {
+  eggs: 'икра',
+  eyes: 2,
+  home: 'вода'
+};
+
+const frog = evolution(fish, 'legs', 4);
+
+console.log('лягушка: ', frog);
+
+// лягушка: { eggs: икра, eyes: 2, home: вода, legs:4 }
+
+console.log('рыба: ', fish);
+
+// рыба: { eggs: "икра", eyes: 2, home: "вода" }
+

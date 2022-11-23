@@ -1,5 +1,8 @@
 //              🔷 Объекты 🔷
 
+const exampleY = new Object(); // конструктор объекта
+const exampleU = {}; // литерал объекта
+
 const car = {
   //ключ // значение свойств
   model: 'ВАЗ 2101',
@@ -7,7 +10,7 @@ const car = {
   doors: 4,
   hasAirConditioner: false
 };
-
+console.log('doors' in car);
 //  🧰 обьект в обьекте 🧰
 
 const car2 = {
@@ -288,4 +291,86 @@ console.log(firstPirate);
 // { name: "Джек", nickName: "Воробей", rank: "Капитан" }
 
 console.log(secondPirate);
-// { name: "Джек", nickName: "Воробей", rank: "Капитан" } 
+// { name: "Джек", nickName: "Воробей", rank: "Капитан" }
+
+// ✅ Сравнение объектов
+
+const objT1 = {};
+const objT2 = {};
+console.log(objT1 === objT2); // false 
+
+const time = {};
+const money = time;
+console.log(time === money); // true. Ведь time и money — это две ссылки на один и тот же объект
+
+const user1 = {
+  nickname: 'Vasya2000',
+  name: 'Вася',
+  surname: 'Пупкин'
+};
+
+const user2 = {
+  nickname: 'Vasya2000',
+  name: 'Вася',
+  surname: 'Пупкин'
+};
+
+const user3 = user1;
+
+console.log(user1 === user2); // false
+console.log(user2 === user3); // false
+console.log(user1 === user3); // true
+
+// ✅ функция compare для сравнения двух объектов по ссылке.
+
+function compare(firstObj, secondObj) {
+  return firstObj === secondObj;
+}
+
+const firstTO = {
+  property: 'value'
+};
+
+const secondTO = {
+  property: 'value'
+};
+
+const thirdTO = secondTO;
+
+console.log(compare(firstTO, secondTO)); // false
+console.log(compare(secondTO, thirdTO)); // true
+
+// ✅ функция isEqual, которая сравнивает два объекта по свойствам и значениям.
+
+function isEqual(firstObj, secondObj) {
+  const firstKeys = Object.keys(firstObj);
+  const secondKeys = Object.keys(secondObj);
+
+  // проверим, одинаковое ли количество ключей в объектах
+  if (firstKeys.length !== secondKeys.length) {
+    // если нет, то всё: объекты точно не равны
+    return false;
+  }
+
+  /* проверим, что для каждого ключа первого объекта
+  значения в первом и втором объекте равны */
+  return firstKeys.every( key => ( firstObj[key] === secondObj[key] ));
+} 
+
+const first = {
+  property: 'value',
+  anotherProperty: 'another value'
+};
+
+const second = {
+  property: 'value',
+  anotherProperty: 'another value'
+};
+
+const third = {
+  property: 'value',
+  anotherProperty: 'one more value'
+};
+
+console.log(isEqual(first, second)); // true
+console.log(isEqual(second, third)); // false
