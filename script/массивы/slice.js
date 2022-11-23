@@ -41,6 +41,7 @@ console.log(typeof months.slice());
 // 💬 Копия массива создаётся с помощью метода slice(). Нужно вызвать его без аргументов и сохранить результат в новую переменную: 💬
 
 const iWatched = ['GameOfThrones', 'Breaking Bad']
+// копируем в новую переменную
 const vitalikWatched = iWatched.slice()
 
 vitalikWatched.push('American Gods')
@@ -58,6 +59,6 @@ const myProfile = [
   24,
   'https://sun9-82.userapi.com/sun9-50/impg/HTNUYVK-IvYFtifkwibYyeir-wwOgSU8SdC93Q/fFx-MPC6Piw.jpg?size=564x480&quality=96&sign=3e754af822a8789bd67f42aaf1da9b28&type=album'
 ]
-
+// .   vadim, big
 const [name, size] = myProfile;
-console.log(size);
+console.log(size); // big

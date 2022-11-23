@@ -220,3 +220,58 @@ console.log('рыба: ', fish);
 
 // рыба: { eggs: "икра", eyes: 2, home: "вода" }
 
+// 🧰 Глубокое копирование объектов 🧰
+
+const original = {
+  one: 1,
+  two: 2,
+  three: { message: 'I love JS' }
+};
+
+const copyOriginal = Object.assign({}, original);
+copyOriginal.three = Object.assign({}, original.three);
+
+// копия
+console.log(copyOriginal);
+
+// { one: 1, two: 2, three: { message: "I love JS" } } 
+
+// копия имеет общие корни с оригиналом?
+console.log(copyOriginal === original); // false
+
+// свойство three копии имеет общие корни
+// со свойством three оригинала?
+console.log(copyOriginal.three === original.three); // false
+
+// ✅
+
+const aladdinSane = {
+  artist: 'David Bowie',
+  album: 'Aladdin Sane',
+  year: 1973,
+  tracks: {
+    'Watch That Man': '4:30',
+    'Aladdin Sane': '5:06',
+    'Drive-In Saturday': '4:33',
+    'Panic in Detroit': '4:25',
+    'Cracked Actor': '3:01',
+    'Time': '5:15',
+    'The Prettiest Star': '3:31',
+    "Let's Spend the Night Together": '3:10',
+    'The Jean Genie': '4:07',
+    'Lady Grinning Soul': '3:54'
+  }
+};
+
+const aladdinSaneCopy = Object.assign({}, aladdinSane);
+aladdinSaneCopy.tracks = Object.assign({}, aladdinSane.tracks);
+
+console.log(aladdinSane.tracks === aladdinSaneCopy.tracks); // false
+
+//  Массивы — это объекты
+
+const arrObj = [1, 2, 3];
+arrObj.four = 4;
+
+console.log(arrObj.four); // 4
+console.log(arrObj); // [1, 2, 3, four: 4] — можно и весь arr вывести, так забавнее
