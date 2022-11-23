@@ -83,6 +83,7 @@ const order = ['яблоко', 'банан', 'апельсин', 'банан', '
 const result = order.reduce(function (prevVal, item) {
   if (!prevVal[item]) {
     // если ключа ещё нет в объекте, значит это первое повторение
+    console.log(!prevVal[item]);
     prevVal[item] = 1; 
     console.log(prevVal[item]);
   } else {

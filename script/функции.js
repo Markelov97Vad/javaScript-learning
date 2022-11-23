@@ -15,7 +15,18 @@ function multiplyFirst(a, b) { // функция принимает множит
   return a * b; // и возвращает произведение
 }
 
-multiplyFirst(2, 3); // 6 
+multiplyFirst(2, 3); // 6
+
+//            🧰 Передача по ссылке 🧰
+function hrefFunc(a, b) {
+  return a * b;
+}
+
+let multiplyRef = hrefFunc;
+
+console.log(hrefFunc === multiplyRef); // true
+
+
 
 //                                              🧰 Область видимости функции 🧰
 

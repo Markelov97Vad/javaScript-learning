@@ -268,10 +268,27 @@ aladdinSaneCopy.tracks = Object.assign({}, aladdinSane.tracks);
 
 console.log(aladdinSane.tracks === aladdinSaneCopy.tracks); // false
 
-//  Массивы — это объекты
+//  🧰 Массивы — это объекты 🧰
 
 const arrObj = [1, 2, 3];
 arrObj.four = 4;
 
 console.log(arrObj.four); // 4
 console.log(arrObj); // [1, 2, 3, four: 4] — можно и весь arr вывести, так забавнее
+
+// 🧰 Функции тоже объекты 🧰
+
+function multiplyObjact(a, b) {
+  return a * b;
+}
+
+/* Функция — это объект. Добавим в неё свойство someValue,
+присвоив ему значение 4 */
+
+multiplyObjact.someValue = 4;
+
+/* Если теперь обратиться к свойству функции с ключом someValue, 
+вернётся 4 */
+
+console.log(multiplyObjact.someValue); // 4
+

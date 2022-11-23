@@ -374,3 +374,22 @@ const third = {
 
 console.log(isEqual(first, second)); // true
 console.log(isEqual(second, third)); // false
+
+const collect = 1;
+console.log(collect.times)
+
+// ✅ функцию counter, которая будет считать, сколько раз её вызвали, и возвращать это число как результат.
+
+function counter() {
+  // напишите свой код здесь
+  if(!counter.times) {
+    counter.times = 0;
+  } 
+  return counter.times += 1;
+}
+
+console.log(counter()); // 1
+console.log(counter()); 
+console.log(counter());
+console.log(counter());
+console.log(counter()); // 5
