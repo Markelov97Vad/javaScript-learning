@@ -62,3 +62,4 @@ const myProfile = [
 // .   vadim, big
 const [name, size] = myProfile;
 console.log(size); // big
+
