@@ -42,3 +42,34 @@ function keyHandler (event) {
     addSong(artistInput.value, titleInput.value);
   }
 };
+
+//                    🧰 Снятие слушателя removeEventListener 🧰
+
+
+artistInput.removeEventListener('keydown', keyHandler); // отключит слушатель событий в input 'Исполнитель'
+
+addButton.removeEventListener('click', function () {
+  addSong(artistInput.value, titleInput.value);
+}); // не сработает, тк js не видит эту функцию
+
+// ✅
+// character — это персонаж. В его свойстве health
+// хранится количество очков здоровья
+
+const character = {
+  health: 200
+};
+
+// объявляем функцию increaseHealth,
+// англ. increase health — увеличить здоровье
+function increaseHealth(evt) {
+    character.health = character.health + 50; // увеличиваем очки здоровья
+
+  // как только зелье выпито,
+  // обработчик удаляется с зелья
+    evt.target.removeEventListener('click', increaseHealth);
+}
+
+// добавляем слушатель элементу зелья
+// англ. potion — зелье
+potion.addEventListener('click', increaseHealth); 
