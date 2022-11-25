@@ -19,14 +19,16 @@
       <h1 class="cover__heading">Плейлист</h1>
     </div>
     <div class="block">
-      <h3>Добавить песню</h3>
-      <div class="input">
-        <input type="text" placeholder="Название" class="input__text input__text_type_title">
-        <input type="text" placeholder="Исполнитель" class="input__text input__text_type_artist">
-        <button class="input__btn input__btn_action_add">
-          Добавить
-        </button>
-      </div>
+      <form name="add">
+        <h3>Добавить песню</h3>
+        <div class="input">
+          <input type="text" placeholder="Название" class="input__text input__text_type_title" name="title">
+          <input type="text" placeholder="Исполнитель" class="input__text input__text_type_artist" name="artist">
+          <button class="input__btn input__btn_action_add">
+            Добавить
+          </button>
+        </div>
+     </form>
     </div>
     <div class="block">
       <h3>Добавленные</h3>
@@ -35,6 +37,32 @@
       </div>
     </div>
   </main>
+
+  <form name="formChoice">
+    <label for="myCheckboxYes">да</label>
+    <input type="checkbox" name="myCheckboxYes" id="true">
+    <label for="myCheckboxNo">нет</label>
+    <input type="checkbox" name="myCheckboxNo" id="false">
+    <!-- <input type="checkbox" name="myCheckbox"> -->
+    <button class="button_theme_check">Отправить</button>
+
+    <select name="mySelect">
+      <option value="➡">Направо</option>
+      <option value="⬅">Налево</option>
+      <option value="⬆">Прямо</option>
+      <option value="⬇">Назад</option>
+    </select>
+    <button class="button_theme_select">Submit</button>
+  </form> 
+
+  <div class="container">
+    <button class="wow-button" onclick="doSomething()">WOW</button>
+  </div>
+  <script>
+    function doSomething() {
+      console.log('На меня нажали, вау!');
+    }
+  </script>
 
   <template id="song-template">
     <div class="song">
@@ -112,7 +140,7 @@
   <script>
     // команда вывода через JS, выводит тест после закрывающего тега script
     document.write("Вывод текста через метод write");
-    document.write('<img src="./image-card1.jpg">');
+    //document.write('<img src="./image-card1.jpg">');
     // вывод в консоль
     console.log('вывод текста через консоль');
     // также через другой метод
@@ -156,6 +184,7 @@
   <script src="./script/объекты/объекты.js"></script>
   <script src="./script/объекты/операторы.js"></script>
   <script src="./script/объекты/object-x.js"></script>
+  <script src="./script/события/события.js"></script>
   <script src="./script/события/события-клавиатуры.js"></script>
   <script src="./script/события/события-мыши.js"></script>
   

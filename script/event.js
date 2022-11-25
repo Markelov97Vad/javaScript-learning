@@ -1,6 +1,6 @@
 // Объект event
 
-const buttonEvent = document.querySelector('button');
+//const buttonEvent = document.querySelector('button');
 
 buttonEvent.addEventListener('click', function (event) { // event доступен как параметр
     // // //console.log(event); // его можно использовать в теле обработчика //

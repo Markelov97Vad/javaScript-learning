@@ -37,10 +37,100 @@ artistInput.addEventListener('keydown', keyHandler);
 
 titleInput.addEventListener('keydown', keyHandler);
 
+function skolko() {
+  // напишите свой код здесь
+  if(!skolko.times) {
+    skolko.times = 0;
+  } 
+  return skolko.times += 1;
+}
+
+//console.log(typeof 'string');
+//typeof 'string' === typeof evt.key
+function adc (evt){
+  if (Number.isNaN(Number(evt))) {
+    if (evt === 'й') {
+      return `${evt}`+ ' - йогурт';
+    }
+     else if (evt === 'ц'){
+      return `${evt}`+ ' - царь 👑';
+    } else if (evt === 'у'){
+      return `${evt}`+ ' - улитка 🐌';
+    } else if (evt === 'к'){
+      return `${evt}`+ ' - какашка';
+    } else if (evt === 'е'){
+      return `${evt}`+ ' - Ералаш';
+    } else if (evt === 'н'){
+      return `${evt}`+ ' - навоз';
+    } else if (evt === 'г'){
+      return `${evt}`+ ' - голубь';
+    } else if (evt === 'ш'){
+      return `${evt}`+ ' - шашлык';
+    } else if (evt === 'щ'){
+      return `${evt}`+ ' - щука';
+    } else if (evt === 'з'){
+      return `${evt}`+ ' - заноза';
+    } else if (evt === 'х'){
+      return `${evt}`+ ' - хлыст';
+    } else if (evt === 'ъ'){
+      return `${evt}`+ ' - знак';
+    } else if (evt === 'ф'){
+      return `${evt}`+ ' - фламинго';
+    } else if (evt === 'ы'){
+      return `${evt}`+ ' - Ы – голый вепрь, из книги Стругацких «Трудно быть богом»';
+    } else if (evt === 'в'){
+      return `${evt}`+ ' - вогон';
+    } else if (evt === 'а'){
+      return `${evt}`+ ' - астронавт';
+    } else if (evt === 'п'){
+      return `${evt}`+ ' - помидор';
+    } else if (evt === 'р'){
+      return `${evt}`+ ' - рыло';
+    } else if (evt === 'о'){
+      return `${evt}`+ ' - огрызок';
+    } else if (evt === 'л'){
+      return `${evt}`+ ' - льдина';
+    } else if (evt === 'д'){
+      return `${evt}`+ ' - дармоед';
+    } else if (evt === 'ж'){
+      return `${evt}`+ ' - жир';
+    } else if (evt === 'э'){
+      return `${evt}`+ ' - энергия';
+    } else if (evt === 'ё'){
+      return `${evt}`+ ' - ёж';
+    } else if (evt === 'я'){
+      return `${evt}`+ ' - ярлык';
+    } else if (evt === 'ч'){
+      return `${evt}`+ ' - чугун';
+    } else if (evt === 'с'){
+      return `${evt}`+ ' - сельд';
+    } else if (evt === 'м'){
+      return `${evt}`+ ' - молот';
+    } else if (evt === 'и'){
+      return `${evt}`+ ' - иний';
+    } else if (evt === 'т'){
+      return `${evt}`+ ' - труба';
+    } else if (evt === 'ь'){
+      return `${evt}`+ ' - знак';
+    } else if (evt === 'б'){
+      return `${evt}`+ ' - боров';
+    } else if (evt === 'ю'){
+      return `${evt}`+ ' - ювелир';
+    } 
+  } else if (typeof 'string' === typeof evt) {
+    return evt * evt;
+  } else {
+    console.log('все пропало');
+  }
+}
+
 function keyHandler (event) {
   if (event.key === 'Enter') {
     addSong(artistInput.value, titleInput.value);
   }
+  const xXx = event.key.toLowerCase()
+  console.log(adc(xXx));
+  
 };
 
 //                    🧰 Снятие слушателя removeEventListener 🧰
@@ -72,4 +162,5 @@ function increaseHealth(evt) {
 
 // добавляем слушатель элементу зелья
 // англ. potion — зелье
-potion.addEventListener('click', increaseHealth); 
+//potion.addEventListener('click', increaseHealth);
+

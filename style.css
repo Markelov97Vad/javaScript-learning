@@ -161,3 +161,13 @@ h3 {
   opacity: 1;
   background: url(https://code.s3.yandex.net/web-code/dom/heart-filled.svg) center no-repeat;
 }
+
+.wow-button {
+  width: 150px;
+  height: 50px;
+  font-size: 0.8em;
+  border-radius: 2px;
+  cursor: pointer;
+  background-color: rgb(5, 4, 11);
+  color: rgba(255, 242, 0, 0.502);
+}
