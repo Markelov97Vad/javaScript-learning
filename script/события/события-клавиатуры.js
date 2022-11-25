@@ -29,8 +29,11 @@ document.addEventListener('keydown', function () {
 
 // ✅ события для Плейлиста
 
-addButton.addEventListener('click', function () {
+addButton.addEventListener('click', function (evt) {
+  evt.preventDefault();
   addSong(artistInput.value, titleInput.value);
+  console.log('сработал первый обработчик');
+  setSubmitButtonState(false);
 });
 
 artistInput.addEventListener('keydown', keyHandler);
@@ -103,7 +106,7 @@ function adc (evt){
     } else if (evt === 'ч'){
       return `${evt}`+ ' - чугун';
     } else if (evt === 'с'){
-      return `${evt}`+ ' - сельд';
+      return `${evt}`+ ' - сельдь';
     } else if (evt === 'м'){
       return `${evt}`+ ' - молот';
     } else if (evt === 'и'){

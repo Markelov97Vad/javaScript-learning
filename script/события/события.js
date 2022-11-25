@@ -31,9 +31,10 @@ console.log(form);
 
 form.addEventListener('submit', function (evt) {
   evt.preventDefault(); // отменяет стандартное поведение формы, не отправляет данные на сервер
-  addSong(artistInput.value, titleInput.value);
-  artistInput.value = '';
-  titleInput.value = '';
+  addSong(артист.value, название.value);
+  артист.value = '';
+  название.value = '';
+  console.log('сработал второй обработчик')
 });
 
 console.log(document.forms.add.elements); // элементы формы 'add'
@@ -50,7 +51,7 @@ addButton.addEventListener('click', function(evt) {
 // ✅ Значение чекбокса и радиокнопки
 
 const button = document.querySelector('.button_theme_check');
-
+const choiceForm = document.forms.formChoice;
 const checkbox1 = document.forms.formChoice.elements.myCheckboxYes;
 const checkbox2 = document.forms.formChoice.elements.myCheckboxNo;
 
@@ -70,5 +71,45 @@ const select = document.forms.formChoice.elements.mySelect;
 
 buttonS.addEventListener('click', function (evt) {
   evt.preventDefault();
-   console.log(select.value); // попадёт то, что выбрано
- }); 
+  console.log(select.value); // попадёт то, что выбрано
+  console.log(`Произошло событие ${evt.type}`)
+});
+
+//        🧰 События change и input 🧰
+// ✅ для всех типов, кроме текстовых полей
+
+choiceForm.addEventListener('input', function (evt) {
+  console.log(`Произошло событие ${evt.type}`);
+})
+
+choiceForm.addEventListener('change', function (evt) {
+  console.log(`Произошло событие ${evt.type}`);
+})
+
+// ✅  для текстовых полей
+
+artistInput.addEventListener('input', function(evt) {
+  console.log(`Произошло событие ${evt.type}`);
+  //const isValid = artist.value.length > 0 && title.value.length > 0;
+  //setSubmitButtonState(isValid);
+});
+
+artistInput.addEventListener('change', function(evt) {
+  console.log(`Произошло событие ${evt.type}`);
+})
+
+form.addEventListener('input', function (evt) {
+  const trueOrFalse = артист.value.length > 0 && название.value.length > 0;
+  //console.log(isValid);
+  setSubmitButtonState(trueOrFalse);
+});
+
+function setSubmitButtonState(ответИзформы) {
+  if (ответИзформы) {
+    addButton.removeAttribute('disabled');
+    addButton.classList.remove('input__btn_disabled');
+  } else {
+    addButton.setAttribute('disabled', true);
+    addButton.classList.add('input__btn_disabled');
+  };
+};
