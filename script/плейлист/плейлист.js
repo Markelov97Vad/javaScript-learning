@@ -14,7 +14,8 @@ function addSong(artistValue, titleValue) {
   });
 
   songsContainer.append(songElement);
-  artistInput.value = '';
-  titleInput.value = '';
+  // artistInput.value = '';
+  // titleInput.value = '';
+  form.reset(); // обнуляет значение полей
 }
 

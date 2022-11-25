@@ -32,9 +32,8 @@ console.log(form);
 form.addEventListener('submit', function (evt) {
   evt.preventDefault(); // отменяет стандартное поведение формы, не отправляет данные на сервер
   addSong(артист.value, название.value);
-  артист.value = '';
-  название.value = '';
   console.log('сработал второй обработчик')
+  form.reset(); // обнуляет значение полей
 });
 
 console.log(document.forms.add.elements); // элементы формы 'add'
@@ -104,6 +103,7 @@ form.addEventListener('input', function (evt) {
   setSubmitButtonState(trueOrFalse);
 });
 
+// функция которая делает кнопку активной или наоборот
 function setSubmitButtonState(ответИзформы) {
   if (ответИзформы) {
     addButton.removeAttribute('disabled');

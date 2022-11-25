@@ -33,7 +33,7 @@ addButton.addEventListener('click', function (evt) {
   evt.preventDefault();
   addSong(artistInput.value, titleInput.value);
   console.log('сработал первый обработчик');
-  setSubmitButtonState(false);
+  setSubmitButtonState(false); // делает кнопку неактивной
 });
 
 artistInput.addEventListener('keydown', keyHandler);
