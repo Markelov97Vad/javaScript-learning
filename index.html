@@ -19,11 +19,11 @@
       <h1 class="cover__heading">Плейлист</h1>
     </div>
     <div class="block">
-      <form name="add">
+      <form name="add" novalidate>
         <h3>Добавить песню</h3>
         <div class="input">
-          <input type="text" placeholder="Название" class="input__text input__text_type_title" name="title">
-          <input type="text" placeholder="Исполнитель" class="input__text input__text_type_artist" name="artist">
+          <input type="text" placeholder="Название" class="input__text input__text_type_title" name="title" minlength="1" maxlength="30" required>
+          <input type="url" placeholder="Исполнитель" class="input__text input__text_type_artist" name="artist" minlength="1" maxlength="30" required>
           <button class="input__btn input__btn_action_add input__btn_disabled" disabled>
             Добавить
           </button>
@@ -38,6 +38,7 @@
     </div>
   </main>
 
+  
   <form name="formChoice">
     <label for="myCheckboxYes">да</label>
     <input type="checkbox" name="myCheckboxYes" id="true">
@@ -73,9 +74,6 @@
   </template>
 
   <script src="./script/плейлист/плейлист.js"></script>
-
-
-  
 
   <div class="todo-list">
   </div>
