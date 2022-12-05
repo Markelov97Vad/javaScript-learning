@@ -89,6 +89,7 @@ choiceForm.addEventListener('change', function (evt) {
 
 artistInput.addEventListener('input', function(evt) {
   console.log(`Произошло событие ${evt.type}`);
+  console.log(evt.target.validity);
   //const isValid = artist.value.length > 0 && title.value.length > 0;
   //setSubmitButtonState(isValid);
 });
