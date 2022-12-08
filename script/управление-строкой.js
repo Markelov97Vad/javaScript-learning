@@ -5,7 +5,24 @@ const list = 'Спички, молоко, масло, сок'
 list.indexOf('молоко'); // индекс от первой буквы 8
 
 'Шалаш'.indexOf('Ш'); // 0
-'Шалаш'.indexOf('ш'); // 4 
+'Шалаш'.indexOf('ш'); // 4
+
+const lastInd = 'круиз из лиз';
+
+console.log(lastInd.lastIndexOf('')); // 12
+console.log(lastInd.lastIndexOf('Из')); // -1
+console.log(lastInd.lastIndexOf('из')); // 10
+
+
+const socialNumb = [1, 9, 2, 2, 3, 4, 1, 7, 8, 0, 9, 0, 1, 5, 3];
+
+const bvlog = socialNumb.filter(function (item, position, array) {
+  console.log(array.lastIndexOf(item) === position); // вернём уникальные элементы
+  
+});
+
+console.log(socialNumb); // [1, 9, 2, 2, 3, 4, 1, 7, 8, 0, 9, 0, 1, 5, 3]
+console.log(bvlog); // [2, 4, 7, 8, 9, 0, 1, 5, 3]
 
 //                                         Поиск символов в строке INCLUDES
 
