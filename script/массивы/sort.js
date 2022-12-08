@@ -93,3 +93,10 @@ const arrfortest = ['ящерица', 'попугай', 'кот', 'аист',];
 
 let newarrfortest =  arrfortest.sort();
 console.log(newarrfortest);
+
+const asssa = [
+  'эффект аиста', 'вонь осла', 'пыль из-под колес'
+];
+
+asssa.sort();
+console.log(asssa)
