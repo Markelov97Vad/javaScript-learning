@@ -26,7 +26,9 @@ function double(value) {
 
 console.log(double(2)); // 4
 console.log(double([1, 2, 3])); // [2, 4, 6]
-// 
+
+// ✅ определение индекса элемента массива
+arr.indexOf("string"); // 1
 
 //                                              🧰 Многомерные массивы 🧰
 
@@ -70,6 +72,23 @@ const ar3 = ar2;
 console.log(ar1 === ar2); // false
 console.log(ar2 === ar3); // true 
 
+// вариант записи ✅ 
+let foll = 'map'
+console.log(ar1[foll](a => a + 1)); // [ 2, 3, 4 ]
+
+// ✅  Массив это объект
+
+const cats = ['Boris', 'Vasya', 'Murzik']
+cats.length = 5 // теперь массив стал длинной в 5 элементов
+cats.someField = 'value' // добавилось поле
+
+console.log(cats);
+console.log(cats.length);
+
+const catObj = new String('Boris')
+catObj.color = 'black'
+console.log(catObj);
+// добавится, так как в cat лежит объект, а не строка
 
 //                                         🧰 Array.from создаёт массив из «массивоподобного» объекта: 🧰
 
@@ -274,3 +293,7 @@ const evenNumbers = []
 for (let i = 0; i <= 1000; i += 2) {
   evenNumbers.push(i)
 }
+
+
+
+

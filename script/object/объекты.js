@@ -1,8 +1,8 @@
 //              🔷 Объекты 🔷
 
-const exampleY = new Object(); // конструктор объекта
+const exampleY = new Object('HOME'); // конструктор объекта
 const exampleU = {}; // литерал объекта
-
+console.log(exampleY);
 const car = {
   //ключ // значение свойств
   model: 'ВАЗ 2101',
@@ -33,6 +33,24 @@ let objact = {
 
 console.log(objact[stringName]);
 
+// ✅ создание обьекта
+
+const pet = 'dog'
+const pet2 = new String('dog') // будет создан объект
+
+console.log(pet === pet2)
+// false, потому что в pet2 находится объект
+
+console.dir(pet2);
+console.log(pet2);
+/* Выведет
+{
+  0: "d",
+  1: "o",
+  2: "g",
+  length: 3
+}
+*/
 
 // 🧰 можно обратиться через точку 🧰
 
@@ -367,6 +385,7 @@ const second = {
   anotherProperty: 'another value'
 };
 
+console.dir(second);
 const third = {
   property: 'value',
   anotherProperty: 'one more value'
@@ -380,16 +399,17 @@ console.log(collect.times)
 
 // ✅ функцию counter, которая будет считать, сколько раз её вызвали, и возвращать это число как результат.
 
-function counter() {
-  // напишите свой код здесь
-  if(!counter.times) {
-    counter.times = 0;
-  } 
-  return counter.times += 1;
-}
+// function counter() {
+//   // напишите свой код здесь
+//   if(!counter.times) {
+//     counter.times = 0;
+//   } 
+//   return counter.times += 1;
+// }
 
-console.log(counter()); // 1
-console.log(counter()); 
-console.log(counter());
-console.log(counter());
-console.log(counter()); // 5
+// console.log(counter()); // 1
+// console.log(counter()); 
+// console.log(counter());
+// console.log(counter());
+// console.log(counter()); // 5
+
