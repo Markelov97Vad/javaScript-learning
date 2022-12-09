@@ -96,8 +96,8 @@ howDoYouDo(); // "да ничего"
 // ✅
 // Допишите код, чтобы он проверял, есть ли в пароле вопросительный знак — и если есть, выводил его позицию на экран:
 
-const passwordQwest = prompt('Введите пароль:', '');
-console.log(passwordQwest);
+// const passwordQwest = prompt('Введите пароль:', '');
+// console.log(passwordQwest);
 
 // for (let i = 0; i <= passwordQwest.length; i = i + 1) {
 //     if (passwordQwest.includes('?')) {
@@ -111,14 +111,56 @@ console.log(passwordQwest);
    
 // }
 
-for (let i = 0; i <= passwordQwest.length; i = i + 1) {
-  if (passwordQwest.indexOf('?') !== i) continue;
-  if((passwordQwest.indexOf('?') === i)){
-      alert('"?" является ' + (i + 1) + ' символом');
-    }
+// for (let i = 0; i <= passwordQwest.length; i = i + 1) {
+//   if (passwordQwest.indexOf('?') !== i) continue;
+//   if((passwordQwest.indexOf('?') === i)){
+//       alert('"?" является ' + (i + 1) + ' символом');
+//     }
    
-  if (i === passwordQwest.indexOf('?')) {
-    break
-  }
+//   if (i === passwordQwest.indexOf('?')) {
+//     break
+//   }
  
+// }
+
+let tesTobJ = {
+  true: 'false'
 }
+
+tesTobJ = {
+  false: 'true'
+}
+console.log(tesTobJ);
+
+
+const hum1 = {};
+const women = 'mom';
+
+hum1["numberOne"] = women;
+console.log(hum1);
+
+const expenO = {
+  'руп': 'на суп',
+  'трёшку': 'на картошку',
+  'пятёрку': 'на тетёрку', 
+  'десятку': 'на куропатку',
+  'сотку': 'на *одку'
+};
+
+/* в виде объекта записано стихотворение Николая Олейникова 
+«Перечень расходов на одного делегата» */
+
+Object.keys(expenO).forEach(function (a , b, c) {
+  console.log(expenO[a]);
+});
+
+/* в консоли выводятся ключи:
+
+  руп
+  трёшку
+  пятёрку
+  десятку
+  сотку
+
+*/ 
+

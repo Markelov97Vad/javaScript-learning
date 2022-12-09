@@ -21,3 +21,8 @@ function getRandomElement(arr) {
 coverHeading.addEventListener('dblclick', () => {
   coverHeading.textContent = getRandomElement(playListTitles);
 });
+
+// отменит вызов контекстного меню
+document.addEventListener('contextmenu', (evt) => {
+  //evt.preventDefault();
+});

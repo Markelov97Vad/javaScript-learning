@@ -54,7 +54,8 @@ Object.keys(expenses).forEach(function (a) {
 // Метод Object.values возвращает значения всех свойств и методов объекта, а Object.entries — все пары «ключ-значение».
 
 const paulMcCartney = {
-  yesterday: 'all my troubles seemed so far away'
+  yesterday: 'all my troubles seemed so far away',
+  today: 'oh no'
 };
 
 console.log( Object.values(paulMcCartney) ); // ["all my troubles seemed so far away"]
