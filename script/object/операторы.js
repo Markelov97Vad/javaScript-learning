@@ -83,7 +83,7 @@ console.log('Позовите, пожалуйста, кого-нибудь из 
 
 // ✅
 
-const welcomeMessages = {
+const welcomeMessages1 = {
   russian: 'Добро пожаловать',
   english: 'Welcome',
   french: 'Bienvenue',
@@ -95,13 +95,13 @@ const welcomeMessages = {
 
 function deleteWelcomeMessages(propsArr) {
   propsArr.forEach( key => {
-    delete welcomeMessages[key];
+    delete welcomeMessages1[key];
   });
 }
 
 deleteWelcomeMessages(['italian', 'french']);
 
-console.log(welcomeMessages);
+console.log(welcomeMessages1);
 
 /* Теперь итальянский и французский переводы удалены:
 

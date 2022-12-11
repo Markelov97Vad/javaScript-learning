@@ -114,3 +114,52 @@ function setSubmitButtonState(ответИзформы) {
     addButton.classList.add('input__btn_disabled');
   };
 };
+
+// ✅ Создание своего события
+
+const myEvent = new CustomEvent('my-event', {
+  detail: {
+          spicy: 'мое событие',
+      },
+})
+
+window.addEventListener('my-event', function(evt) {
+console.log('В поле spicy:', evt.detail.spicy)
+})
+
+window.dispatchEvent(myEvent)
+
+// 
+
+document.querySelector("#buttonTarget").addEventListener('click', function (event) {
+  console.log('Событие инициировано на', event.target)
+  console.log('Событие поймано на', event.currentTarget)
+})
+
+/* currentTarget всегда будет элементом, к которому привязан обработчик, 
+то есть элементом, на котором вызывался addEventListener().
+
+target — это элемент, на котором произошло событие. 
+Оно может не совпадать с currentTarget, потому что большинство событий всплывают. */
+
+// События косания пальцем
+
+// touchstart - срабатывает при первом касании
+// touchmove - срабатывает во время движения пальцем по элементу
+// touchend - срабатывает после окончания прикосновения
+// touchcancel - сработает когда событие было прервано
+
+document.addEventListener('touchstart', (event) => {
+  console.log('Вы приложили палец к элементу')
+})
+
+
+document.addEventListener('touchmove', (event) => {
+  console.log('По мне ведут пальцем');
+})
+
+// ✅ События колеса мыши
+
+// document.addEventListener('wheel', function(event) {
+//   console.log(event)
+// })

@@ -173,3 +173,31 @@ h3 {
   background-color: rgb(5, 4, 11);
   color: rgba(255, 242, 0, 0.502);
 }
+
+.button-target {
+  appearance: none;
+  border: 2px solid #ccc;
+  margin: 0;
+  padding: 0;
+  border-radius: 8px;
+  background: #fff;
+  font: inherit;
+}
+
+.button-target:hover {
+  background-color: #ffdb4d;
+}
+
+.button-label {
+  display: block;
+  margin: 16px;
+  padding: 16px 24px;
+  border-radius: 4px;
+  background: #ccc;
+  font-size: 16px;
+}
+
+.button-label:hover {
+  background-color: aqua;
+}
+
