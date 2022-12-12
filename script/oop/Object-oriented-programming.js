@@ -39,16 +39,19 @@ function createSong(title, artist, releaseYear) {
   return newSong;
 }
 
-// Ключевое слово 🧰 class 🧰
+//    Ключевое слово 🧰 class 🧰
 
 class Song {
+  // метод, функциональность
   constructor(title, artist) {
-      this.title = title;
-      this.artist = artist;
+    // свойста, данные
+    // this ссылка на этот возвращаемый объект.
+    this.title = title;
+    this.artist = artist;
   }
-
+  // метод, функциональность
   like() {
-      this.isLiked = !this.isLiked;
+    this.isLiked = !this.isLiked;
   }
 }
 // Ключевое слово new важно в вызове класса. Оно означает, 
@@ -57,13 +60,14 @@ class Song {
 // «Конструктор класса нельзя вызвать без ключевого слова new».
 const songCreate = new Song('Start Over', 'Any Given Day');
 
-// Метод 🧰 constructor 🧰
+//         Метод 🧰 constructor 🧰
 
 /* Любой класс содержит метод constructor, который вызывается при создании нового объекта этого класса. 
 Метод нужен, чтобы заполнить будущий объект данными.  */
 
 class PodcastEpisode {
   constructor(title, artist, guest, duration) {
+    // свойства создаваемого объекта
     this.title = title;
     this.artist = artist;
     this.isLiked = false;
@@ -83,3 +87,144 @@ class PodcastEpisode {
     this.isLiked = !this.isLiked;
   }
 }
+
+// ✅ Приватные свойства и методы
+
+class Car {  //максимальное значение бензобака// потребление топлива
+  constructor(максЗначБензобака, потреблТоплива) {
+      this.СтоимостьБензобака = 0;
+      this._максЗначБензобака = максЗначБензобака;
+      this._потреблТоплива = потреблТоплива; // литров на 100км
+  }
+// получить доступную стоимость газа
+  _getAvailableGasValue(значениеГаза) {
+      if (значениеГаза < 0) return 0;
+      if (значениеГаза > this._максЗначБензобака) return this._максЗначБензобака;
+      return значениеГаза;
+  }
+  // дозаправиться
+  refuel(значениеГаза) {
+      this._СтоимостьБензобака = this._getAvailableGasValue(значениеГаза);
+  }
+  
+  getDistance() {
+      return this._СтоимостьБензобака / this._потреблТоплива * 100;
+  }
+}
+                    // литров // литров
+const carClass = new Car(70, 9);
+carClass.refuel(45);
+
+console.log(carClass._СтоимостьБензобака); // 45. Свойство на самом деле не приватное. Его можно легко изменить
+console.log(carClass.getDistance()); // 500 
+
+// ✅ Действительно приватные свойства и методы
+
+/* class Car {
+    #gasTankValue
+    #maxGasTankValue
+    #fuelConsumption
+    constructor(maxGasTankValue, fuelConsumption) {
+        this.#gasTankValue = 0;
+        this.#maxGasTankValue = maxGasTankValue;
+        this.#fuelConsumption = fuelConsumption; // литров на 100км
+    }
+
+    #getAvailableGasValue(gasValue) {
+        if (gasValue < 0) return 0;
+        if (gasValue > this.#maxGasTankValue) return this.#maxGasTankValue;
+        return gasValue;
+    }
+    
+    refuel(gasValue) {
+        this.#gasTankValue = this.#getAvailableGasValue(gasValue);
+    }
+    
+    getDistance() {
+        return this.#gasTankValue / this.#fuelConsumption * 100;
+    }
+}
+
+var car = new Car(70, 9); 
+// Эта строка приведёт к ошибке. Доступ к приватным свойствам извне отсутствует
+car.#gasTankValue = -10   */
+
+//                      🧰 Наследование 🧰
+// Общий класс для наследования
+class AudioItem {
+  constructor(title, artist) {
+    this._title = title;
+    this._artist = artist;
+  }
+  like() {
+    this.isLiked = !this.isLiked;
+  }
+}
+ // extends расширяет возможности
+class Audio extends AudioItem {
+  constructor(releaseYear) {
+    // функция super() - вызывает свойства из AudioItem
+    super(title, artist);
+    this._releaseYear = releaseYear;
+    this.isLiked = false;
+  }
+  getAudioInfo() {
+    return `${this._artist} - ${this._title} (${this._releaseYear})`
+  }
+}
+
+class PodcastAudio extends AudioItem {
+  constructor(guest, duration) {
+    super(title, artist);
+    this._guest = guest;
+    this._duration = duration;
+    this.isLiked = false;
+  }
+  getEpisodeInfo() {
+    return `${this._artist}. "${this._title}" - ${this._guest} (${this._getFormattedDuration()} сек.)`;
+  }
+  _getFormattedDuration() {
+    const minutes = Math.floor(this._duration / 60); // целое количество минут
+    const seconds = this._duration % 60; // остаток от деления на 60
+    return `${minutes}:${seconds > 9 ?  seconds : '0' + seconds}`;
+  }
+}
+
+// ✅ Еще пример
+class Student {
+  constructor(name, cohort, profession, trainingDuration) {
+    this._name = name;
+    this._cohort = cohort;
+    this._profession = profession;
+    this._trainingDuration = trainingDuration;
+  }
+} 
+
+class WebDeveloperStudent extends Student {
+  constructor(name, cohort) {
+    super(name, cohort);
+    this._profession = 'Web developer';
+    this._trainingDuration = 10;
+  }
+}
+
+class PythonDeveloperStudent extends Student {
+  constructor(name, cohort) {
+    super(name, cohort);
+    this._profession = 'Python developer';
+    this._trainingDuration = 9;
+  }
+}
+
+class DataAnalystStudent extends Student {
+  constructor(name, cohort) {
+    super(name, cohort);
+    this._profession = 'Data analyst';
+    this._trainingDuration = 6;
+  }
+}
+
+const student1 = new WebDeveloperStudent("Вадим Маркелов", 58);
+const student2 = new DataAnalystStudent("Гриша Чукчин", 28);
+
+console.log(student1);
