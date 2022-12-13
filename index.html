@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
   <title>javaScript learning</title>
 </head>
-<body id="body">
+<body id="body" class="page">
   
   <header class="header">
     <img src="https://code.s3.yandex.net/web-code/dom/logo.svg" alt="" class="header__logo">
@@ -114,6 +114,32 @@
   <button class="button-target" id="buttonTarget" type="button">
     <span class="button-label">Моя кнопочка</span>
   </button>
+
+  <main class="content page__content">
+    <div class="filter content__filter">
+      Отображение:
+      <button type="button" class="button filter__button filter__button_type_grid" data-elements-type="grid"></button>
+      <button type="button" class="button filter__button filter__button_type_column" data-elements-type="column"></button>
+    </div>
+    <section class="card-list">
+      <header class="heading">
+        <h2 class="heading__title">
+          Результат
+        </h2>
+      </header>
+      <div class="card-list__items">
+        <!-- Контейнер для добавления карточек -->
+      </div>
+    </section>
+  </main>
+  <div class="popup">
+    <div class="popup__content">
+      <button type="button" class="popup__close"></button>
+      <img src="https://code.s3.yandex.net/web-code/oop/card_detail.jpg" alt="" class="popup__image">
+      <p class="popup__caption"></p>
+    </div>
+  </div>
+  
   
 
 
@@ -170,7 +196,7 @@
 </template>
 
  <!-- Шаблон мессенджера -->
-<template class="message-template">
+ <template class="message-template message-template_type_default">
   <div class="message">
     <img src="" alt="Аватар пользователя" class="message__avatar">
     <div class="message__text">

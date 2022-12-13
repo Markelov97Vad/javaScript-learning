@@ -25,9 +25,9 @@
   letter-spacing: 1.05px;
   color: black;
   background-color: #f3f3f3;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 
 .content {
@@ -112,7 +112,7 @@
 
 .card-list__items {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   align-items: stretch;
   margin: 0 -8px;
   padding-bottom: 59px;
