@@ -139,6 +139,45 @@
       </div>
     </article>
   </template>
+
+  <!-- Шаблон горизонтальной карточки -->
+<template class="horizontal-card">
+  <article class="card card_content_horizontal">
+    <div class="card__image" style="background-image: url('https://code.s3.yandex.net/web-code/oop/card_detail.jpg');"></div>
+    <div class="card__description">
+      <h3 class="card__title">
+        Конструктор-робот
+      </h3>
+      <p class="card__info">
+        Это популярная серия программируемых робототехнических конструкторов компании Robotis.
+        Серия представлена разнообразными универсальными наборами, которые подойдут как начинающим
+        робототехникам, так и специалистам, работающим над решением актуальных робототехнических задач.
+        Также в наборе есть пульт для управления роботом и набор пластиковых элементов для придания
+        уникального вида собранным моделям
+      </p>
+      <p class="card__property"></p>
+      <span class="card__span-accent">
+        Цена:
+        <span class="card__price-property">
+          126 000
+        </span>
+      </span>
+      <button class="button classic-button card__button">
+        В корзину
+      </button>
+    </div>
+  </article>
+</template>
+
+ <!-- Шаблон мессенджера -->
+<template class="message-template">
+  <div class="message">
+    <img src="" alt="Аватар пользователя" class="message__avatar">
+    <div class="message__text">
+      <p class="message__paragraph"></p>
+    </div>
+  </div>
+</template>
   <!-- если у пользователя не включен по умолчанию JS -->
   <noscript>Подключите в браузере javaScript</noscript>
   <script>
@@ -193,6 +232,7 @@
   <script src="./script/события/события-клавиатуры.js"></script>
   <script src="./script/события/события-мыши.js"></script>
   <script src="./script/oop/Object-oriented-programming.js"></script>
+  <script src="./script/oop/oop-interface.js"></script>
   
   
 </body>

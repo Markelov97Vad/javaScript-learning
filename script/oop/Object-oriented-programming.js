@@ -9,6 +9,35 @@ const song = {
   }
 };
 
+// ✅
+
+function createSong2(title, artist) {
+  // создаём новый объект песни*
+  const newSong = {
+      title,
+      artist,
+      isLiked: false,
+      like: function () {
+          newSong.isLiked = !newSong.isLiked;
+      }
+  }
+
+  return newSong; // возвращаем этот объект
+}
+
+// теперь создавать объекты песен гораздо проще
+const song1 = createSong2('Футбольный мяч', 'Антоха MC');
+const song2 = createSong2('На заре', 'Альянс');
+const song3 = createSong2('Ай', 'Хаски');
+
+// тестируем, как данные и функциональность работают вместе
+console.log(song1.isLiked === song2.isLiked); // true
+console.log('Равенство функций :' + (`функция song1: ${song1.like}` === `Функция song2: ${song3.like}`))// false
+console.log(song1.isLiked); // false
+song1.like();
+console.log(song1.isLiked); // true 
+
+
 /* Свойства объекта — это переменные, его атрибуты. 
 Ещё их называют полями объекта. В коде выше — это song.title, song.artist и song.isLiked.
 Поведение объекта — это его функции. Их называют методами объекта. 
@@ -17,6 +46,8 @@ const song = {
 //       🧰 this 🧰
 // Свойство this — это ключевое слово, которое доступно внутри любой функции. 
 //В зависимости от способа вызова функции this принимает разные значения.
+// свойство this хранит ссылку на объект, на котором она вызвана:
+// Значение this зависит только от того, на каком объекте вызвана функция, а не в каком объекте она хранится.
 
 function like() {
   this.isLiked = !this.isLiked;
@@ -39,7 +70,9 @@ function createSong(title, artist, releaseYear) {
   return newSong;
 }
 
-//    Ключевое слово 🧰 class 🧰
+//    Ключевое слово 🧰 class 🧰 это описание того, какие данные и функциональность будут у объекта. 
+//Это своего рода чертёж, на основании которого создают объекты — экземпляры данного класса. 
+//Класс устанавливает в свои экземпляры свойства (данные) и методы (функциональность).
 
 class Song {
   // метод, функциональность
@@ -59,6 +92,7 @@ class Song {
 // Попытка сделать это без new приведёт к ошибке: 
 // «Конструктор класса нельзя вызвать без ключевого слова new».
 const songCreate = new Song('Start Over', 'Any Given Day');
+console.log(new Song);
 
 //         Метод 🧰 constructor 🧰
 
@@ -116,7 +150,7 @@ class Car {  //максимальное значение бензобака// п
 }
                     // литров // литров
 const carClass = new Car(70, 9);
-carClass.refuel(45);
+console.log(carClass.refuel(45));
 
 console.log(carClass._СтоимостьБензобака); // 45. Свойство на самом деле не приватное. Его можно легко изменить
 console.log(carClass.getDistance()); // 500 
@@ -165,7 +199,7 @@ class AudioItem {
 }
  // extends расширяет возможности
 class Audio extends AudioItem {
-  constructor(releaseYear) {
+  constructor(title, artist, releaseYear) {
     // функция super() - вызывает свойства из AudioItem
     super(title, artist);
     this._releaseYear = releaseYear;
@@ -177,7 +211,7 @@ class Audio extends AudioItem {
 }
 
 class PodcastAudio extends AudioItem {
-  constructor(guest, duration) {
+  constructor(title, artist, guest, duration) {
     super(title, artist);
     this._guest = guest;
     this._duration = duration;
@@ -192,6 +226,10 @@ class PodcastAudio extends AudioItem {
     return `${minutes}:${seconds > 9 ?  seconds : '0' + seconds}`;
   }
 }
+const songClass1 = new Audio ('Жорик Вартанов', "Небо", 2010)
+const songClass2 = new PodcastAudio ('Жорик Вартанов', "Небо", 2010)
+console.log(songClass1);
+console.log(songClass2);
 
 // ✅ Еще пример
 class Student {
@@ -263,4 +301,13 @@ class WebDeveloperStudent1 extends Student {
     info.language = 'Javascript';
     return info;
   }
-} 
+}
+
+const objThis = {
+  keyOne: 'Свойство',
+  method: function () {
+      console.log(this); // выведем значение this
+  }
+}
+
+objThis.method(); // https://pictures.s3.yandex.net/resources/JS4_2___1__3_1560772888_1589621901.jpg
