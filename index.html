@@ -174,7 +174,19 @@
     </div>
   </div>
 
- <!-- Шаблон горизонтальной карточки -->
+<!--Шаблон обычной карточки-->
+<template class="default-card">
+  <article class="card">
+    <div class="card__image" style=""></div>
+    <h3 class="card__title"></h3>
+    <p class="card__property"></p>
+    <button class="button classic-button card__button">
+      Узнать больше
+    </button>
+  </article>
+</template>
+
+<!-- Шаблон горизонтальной карточки -->
 <template class="horizontal-card">
   <article class="card card_content_horizontal">
     <div class="card__image" style="background-image: url('https://code.s3.yandex.net/web-code/oop/card_detail.jpg');"></div>
@@ -244,9 +256,8 @@
     
   </script>
   <script src="./script/переменные.js"></script>
-  <script src="./script/типы-данных.js"></script>
-  <script src="./script/типы-данных/строкa-string.js"></script>
-  <script src="./script/типы-данных/типы-данных.js"></script>
+  <script src="./script/type/строкa-string.js"></script>
+  <script src="./script/type/типы-данных.js"></script>
   <script src="./script/математические-действия.js"></script>
   <script src="./script/массивы/массивы.js"></script>
   <script src="./script/массивы/set.js"></script>
@@ -269,7 +280,9 @@
   <script src="./script/управление-элементами.js"></script>
   <script src="./script/event.js"></script>
   <script src="./script/циклы.js"></script>
-  <script src="./script/функции.js"></script>
+  <script src="./script/function/функции.js"></script>
+  <script type="module" src="./script/export-import/iife.js"></script>
+  <script type="module" src="./script/export-import/for-iife.js" ></script>
   <script src="./script/object/object-x.js"></script>
   <script src="./script/object/объекты.js"></script>
   <script src="./script/object/операторы.js"></script>
@@ -278,6 +291,8 @@
   <script src="./script/события/события-мыши.js"></script>
   <script src="./script/oop/Object-oriented-programming.js"></script>
   <script src="./script/oop/oop-interface.js"></script>
+  <!-- этот модуль загрузится, если браузер старый -->
+  <script type="nomodule"></script>
   
   
 </body>
