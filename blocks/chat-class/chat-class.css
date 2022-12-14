@@ -24,7 +24,6 @@
   position: relative;
   margin-bottom: 10px;
   transition: .3s;
-  cursor: pointer;
 }
 
 .message__text_is-active {

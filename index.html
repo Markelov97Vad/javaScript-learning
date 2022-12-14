@@ -166,7 +166,15 @@
     </article>
   </template>
 
-  <!-- Шаблон горизонтальной карточки -->
+  <div class="popup">
+    <div class="popup__content">
+      <button type="button" class="popup__close"></button>
+      <img src="https://code.s3.yandex.net/web-code/oop/card_detail.jpg" alt="" class="popup__image">
+      <p class="popup__caption"></p>
+    </div>
+  </div>
+
+ <!-- Шаблон горизонтальной карточки -->
 <template class="horizontal-card">
   <article class="card card_content_horizontal">
     <div class="card__image" style="background-image: url('https://code.s3.yandex.net/web-code/oop/card_detail.jpg');"></div>
@@ -196,7 +204,17 @@
 </template>
 
  <!-- Шаблон мессенджера -->
- <template class="message-template message-template_type_default">
+ <!-- Шаблон юзера -->
+ <template class="message-template message-template_type_user">
+  <div class="message message_type_user">
+    <div class="message__text">
+      <p class="message__paragraph"></p>
+    </div>
+    
+  </div>
+</template>
+<!-- Шаблон другого пользователя -->
+<template class="message-template message-template_type_default">
   <div class="message">
     <img src="" alt="Аватар пользователя" class="message__avatar">
     <div class="message__text">
@@ -204,6 +222,7 @@
     </div>
   </div>
 </template>
+
   <!-- если у пользователя не включен по умолчанию JS -->
   <noscript>Подключите в браузере javaScript</noscript>
   <script>

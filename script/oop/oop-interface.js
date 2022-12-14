@@ -1,5 +1,5 @@
 // ООП в интерфейсах
-
+// карточки товаров
 const items = [
   {
     image: 'https://code.s3.yandex.net/web-code/oop/card_detail.jpg',
@@ -20,6 +20,9 @@ const items = [
     price: '145 000'
   },
 ];
+const popupElement = document.querySelector('.popup');
+const popupImage = document.querySelector('.popup__image');
+const popupCloseButton = document.querySelector('.popup__close');
 
 class Card {
   constructor(data, templateSelector) {
@@ -42,7 +45,9 @@ class Card {
 
   generateCard() {
     this._element = this._getTemplate();
-
+    this._setEventListeners();
+    
+    
     this._element.querySelector('.card__image').style.backgroundImage = `url(${this._image})`;
     this._element.querySelector('.card__title').textContent = this._title;
     this._element.querySelector('.card__info').textContent = this._description;
@@ -50,7 +55,26 @@ class Card {
 
     return this._element;
   }
-}
+  
+  _handleOpenPopup(){
+    popupImage.src = this._image;
+    popupElement.classList.add('popup_is-opened');
+  }
+  
+  _handleClosePopup(){
+    popupImage.src = '';
+    popupElement.classList.remove('popup_is-opened');
+  }
+  
+  _setEventListeners() {
+    this._element.addEventListener('click', () => {
+     this._handleOpenPopup();
+    })
+    popupCloseButton.addEventListener('click', () => {
+    this._handleClosePopup();
+  });
+  }
+};
 
 items.forEach((item) => {
   const card = new Card(item, '.horizontal-card');
@@ -69,52 +93,81 @@ const messageList = [
 		text: 'Привет, нам срочно требуется доработать чат!'
 	},
 	{
-		image: 'https://code.s3.yandex.net/web-code/card__image-lake.jpg',
-		text: 'Теперь мы можем создавать сколько угодно карточек!'
+		text: 'Это карточка пользователя',
+    isOwner: true
+	},
+	{
+		image: 'https://code.s3.yandex.net/web-code/card__image.jpg',
+		text: 'Ответ!'
 	},
 ];
 
 class Message {
-	constructor(data, selector) {
-		this._text = data.text;
-		this._image = data.image;
-		this._selector = selector;
+	constructor(selector) {
+    this._selector = selector;
 	}
 
-	_getElement() {
-    const messageElement = document
+  _getElement() {
+  	const messageElement = document
       .querySelector(this._selector)
       .content
       .querySelector('.message')
       .cloneNode(true);
 
-    return messageElement;
+    this._element = messageElement;
+  }
+
+	_setEventListeners() {
+		this._element.querySelector('.message__text').addEventListener('click', () => {
+			this._handleClick();
+		});
 	}
 
-  generate() {
-    this._element = this._getElement();
-  	this._element.querySelector('.message__avatar').src = this._image;
-  	this._element.querySelector('.message__paragraph').textContent = this._text;
+	_handleClick() {
+		this._element.querySelector('.message__text').classList.toggle('message__text_is-active');
+	}
+}
 
-    this._setEventListeners();
+class UserMessage extends Message {
+	constructor(data, selector) {
+    super(selector);
+		this._text = data.text;
+	}
+ 
+  generate() {
+    super._getElement();
+    super._setEventListeners();
+
+  	this._element.querySelector('.message__paragraph').textContent = this._text;
 
   	return this._element;
   }
+};
 
-  _setEventListeners() {
-    this._element.querySelector('.message__text').addEventListener('click', () => {
-      this._handleClick();
-    });
-  }
+class DefaultMessage extends Message {
+	constructor(data, selector) {
+    super(selector);
+		this._text = data.text;
+		this._image = data.image;
+	}
 
-  _handleClick() {
-    this._element.querySelector('.message__text').classList.toggle('message__text_is-active');
+  generate() {
+    super._getElement();
+    super._setEventListeners();
+
+    this._element.querySelector('.message__avatar').src = this._image;
+  	this._element.querySelector('.message__paragraph').textContent = this._text;
+
+  	return this._element;
   }
-}
-const page = document.querySelector('.page')
+};
+
 messageList.forEach((item) => {
-	const message = new Message(item, '.message-template_type_default');
+  const message = item.isOwner
+    ? new UserMessage(item, '.message-template_type_user')
+    : new DefaultMessage(item, '.message-template_type_default');
+
 	const messageElement = message.generate();
 
-	page.append(messageElement);
+	document.body.append(messageElement);
 });
