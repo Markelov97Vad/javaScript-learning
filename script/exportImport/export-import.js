@@ -17,7 +17,7 @@ import * as data from './iife.js';
 
 // Длинные имена модулей можно сокращать и при импорте:
 
-import { array as arr, arrSquared as sq } from './data.js'
+import { array as arr, arrSquared as sq } from './data.js.js'
 
 console.log(arr); // [1, 2, 3]
 console.log(sq); // [1, 4, 9] 

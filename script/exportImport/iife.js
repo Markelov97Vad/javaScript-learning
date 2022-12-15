@@ -43,3 +43,17 @@ Chart.render([[0,12], [1,22], [3,18]]);
 export const objII = {
  "text": 'значение из ./script/function/iife.js'
 };
+
+// ✅
+
+(function () {
+  const a = 'hello'
+  function move () {
+    console.log(a);
+  }
+  move()
+})(); // hello
+
+const a = 'hello';
+console.log(a)
+

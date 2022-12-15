@@ -167,11 +167,11 @@ class Message {
       .querySelector('.message')
       .cloneNode(true);
 
-    this._element = messageElement;
+    this._elem = messageElement;
   }
 
 	_setEventListeners() {
-		this._element.querySelector('.message__text').addEventListener('click', () => {
+		this._elem.querySelector('.message__text').addEventListener('click', () => {
 			this._handleClick();
 		});
 	}
@@ -189,11 +189,12 @@ class UserMessage extends Message {
  
   generate() {
     super._getElement();
+    console.log(this._getElement())
     super._setEventListeners();
 
-  	this._element.querySelector('.message__paragraph').textContent = this._text;
+  	this._elem.querySelector('.message__paragraph').textContent = this._text;
 
-  	return this._element;
+  	return this._elem;
   }
 };
 
@@ -208,10 +209,11 @@ class DefaultMessage extends Message {
     super._getElement();
     super._setEventListeners();
 
-    this._element.querySelector('.message__avatar').src = this._image;
-  	this._element.querySelector('.message__paragraph').textContent = this._text;
-
-  	return this._element;
+    this._elem.querySelector('.message__avatar').src = this._image;
+  	this._elem.querySelector('.message__paragraph').textContent = this._text;
+ 
+    console.log(this);
+  	return this._elem;
   }
 };
 
@@ -224,3 +226,25 @@ messageList.forEach((item) => {
 
 	document.body.append(messageElement);
 });
+
+// const test = {
+//   prop: 42,
+//   func: function() {
+//     return this.prop;
+//   },
+// };
+
+// class Test {
+//   constructor(a, b){
+//     this.a = a;
+//     console.log(this);
+//     this.b = b;
+//     console.log(this)
+//   }
+//   umnog() {
+//     return this.a * this.b;
+//   }
+// }
+
+// const c = new Test(2, 2);
+// console.log(c.umnog())
