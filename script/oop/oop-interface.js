@@ -57,6 +57,7 @@ class Card {
     this._element.addEventListener('click', () => {
       this._handleOpenPopup();
     });
+    console.log(this._element)
 
     popupCloseButton.addEventListener('click', () => {
       this._handleClosePopup();
@@ -189,7 +190,7 @@ class UserMessage extends Message {
  
   generate() {
     super._getElement();
-    console.log(this._getElement())
+    //console.log(this._getElement())
     super._setEventListeners();
 
   	this._elem.querySelector('.message__paragraph').textContent = this._text;
@@ -212,7 +213,7 @@ class DefaultMessage extends Message {
     this._elem.querySelector('.message__avatar').src = this._image;
   	this._elem.querySelector('.message__paragraph').textContent = this._text;
  
-    console.log(this);
+    //console.log(this);
   	return this._elem;
   }
 };
@@ -227,24 +228,106 @@ messageList.forEach((item) => {
 	document.body.append(messageElement);
 });
 
-// const test = {
-//   prop: 42,
-//   func: function() {
-//     return this.prop;
-//   },
-// };
+// создание элементов через ООП ✅
 
-// class Test {
-//   constructor(a, b){
-//     this.a = a;
-//     console.log(this);
-//     this.b = b;
-//     console.log(this)
+// class Instruct {
+//   constructor(select){
+//     // клон Node
+//     this.$el = document.querySelector(select);
 //   }
-//   umnog() {
-//     return this.a * this.b;
+
+//   hide() {
+//     this.$el.style.display = 'none';
+//   }
+//   show() {
+//     this.$el.style.display = 'block';
+//   }
+
+// }
+
+// class Box extends Instruct {
+//   constructor(options) {
+//     super(options.select);
+
+
+//     this.$el.style.width = this.$el.style.height =  options.size + 'px';
+//     this.$el.style.background = options.color
 //   }
 // }
 
-// const c = new Test(2, 2);
-// console.log(c.umnog())
+// class Circle extends Box {
+//   constructor(options){
+//     super(options)
+
+//     this.$el.style.borderRadius = '50%'
+//   }
+// }
+
+
+// const box1 = new Box({
+//   select: '#box1',
+//   size: 100,
+//   color: "red"
+// })
+
+// const box2 = new Box({
+//   select: '#box2',
+//   size: 300,
+//   color: "blue"
+// })
+
+// const box3 = new Box({
+//   select: '#box3',
+//   size: 500,
+//   color: "purple"
+// })
+
+// const box4 = new Box({
+//   select: '#box4',
+//   size: 10,
+//   color: "black"
+
+// })
+
+// const circle = new Circle({
+//   select: '#circle',
+//   size: 90,
+//   color: 'yellow'
+// })
+
+
+
+// const boxRulet = [box1, box2, box3, box4];
+
+// function newFigure (){
+//   const box = new Box({
+//     select: '#box3',
+//     size: 500,
+//     color: "purple"
+//   })
+//   return box;
+// }
+
+// function getRandomFigure(arr) {
+//   const randomId = Math.floor(Math.random() * arr.length);
+//   return arr[randomId];
+// }
+
+// function generateFigure () {
+//   getRandomFigure(allBox());
+//   console.log('hello');
+// }
+
+// box1.hide();
+// box1.show();
+// const boxRed = document.querySelector('#box1');
+// const boxBlue = document.querySelector('#box2');
+// const boxPurple = document.querySelector('#box3');
+// const boxBlack= document.querySelector('#box4');
+// const box = document.querySelector('.box');
+
+// box.addEventListener('click', () => box1.hide());
+
+// box.addEventListener('click', () =>  getRandomFigure(boxRulet));
+// box.addEventListener('click', () =>  newFigure(getRandomFigure(allBox())));
+// box.addEventListener('click', () =>  generateFigure ());
