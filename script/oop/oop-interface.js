@@ -178,7 +178,7 @@ class Message {
 	}
 
 	_handleClick() {
-		this._element.querySelector('.message__text').classList.toggle('message__text_is-active');
+		this._elem.querySelector('.message__text').classList.toggle('message__text_is-active');
 	}
 }
 
@@ -230,70 +230,70 @@ messageList.forEach((item) => {
 
 // создание элементов через ООП ✅
 
-// class Instruct {
-//   constructor(select){
-//     // клон Node
-//     this.$el = document.querySelector(select);
-//   }
+class Instruct {
+  constructor(select){
+    // клон Node
+    this.$el = document.querySelector(select);
+  }
 
-//   hide() {
-//     this.$el.style.display = 'none';
-//   }
-//   show() {
-//     this.$el.style.display = 'block';
-//   }
+  hide() {
+    this.$el.style.display = 'none';
+  }
+  show() {
+    this.$el.style.display = 'block';
+  }
 
-// }
+}
 
-// class Box extends Instruct {
-//   constructor(options) {
-//     super(options.select);
-
-
-//     this.$el.style.width = this.$el.style.height =  options.size + 'px';
-//     this.$el.style.background = options.color
-//   }
-// }
-
-// class Circle extends Box {
-//   constructor(options){
-//     super(options)
-
-//     this.$el.style.borderRadius = '50%'
-//   }
-// }
+class Box extends Instruct {
+  constructor(options) {
+    super(options.select);
 
 
-// const box1 = new Box({
-//   select: '#box1',
-//   size: 100,
-//   color: "red"
-// })
+    this.$el.style.width = this.$el.style.height =  options.size + 'px';
+    this.$el.style.background = options.color
+  }
+}
 
-// const box2 = new Box({
-//   select: '#box2',
-//   size: 300,
-//   color: "blue"
-// })
+class Circle extends Box {
+  constructor(options){
+    super(options)
 
-// const box3 = new Box({
-//   select: '#box3',
-//   size: 500,
-//   color: "purple"
-// })
+    this.$el.style.borderRadius = '50%'
+  }
+}
 
-// const box4 = new Box({
-//   select: '#box4',
-//   size: 10,
-//   color: "black"
 
-// })
+const box1 = new Box({
+  select: '#box1',
+  size: 100,
+  color: "red"
+})
 
-// const circle = new Circle({
-//   select: '#circle',
-//   size: 90,
-//   color: 'yellow'
-// })
+const box2 = new Box({
+  select: '#box2',
+  size: 300,
+  color: "blue"
+})
+
+const box3 = new Box({
+  select: '#box3',
+  size: 500,
+  color: "purple"
+})
+
+const box4 = new Box({
+  select: '#box4',
+  size: 10,
+  color: "black"
+
+})
+
+const circle = new Circle({
+  select: '#circle',
+  size: 90,
+  color: 'yellow'
+})
 
 
 
