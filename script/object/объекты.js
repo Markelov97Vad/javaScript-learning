@@ -237,7 +237,7 @@ addWelcomeMessage('zulu', 'Ukwamukela');
 console.log(welcomeMessages.danish); // "Velkommen"
 console.log(welcomeMessages.zulu); // "Ukwamukela"
 
-// ✅ 
+// ✅ функция записывает в объект данные
 
 const phonebook = {
   'Тёма': {
@@ -253,6 +253,7 @@ const phonebook = {
 
 function addPhoneNumber(name, numberType, number) {
   if (!phonebook[name]){
+    // если нет такого имени ключа, добавить пустой объект
     phonebook[name] = {};
   };
   phonebook[name][numberType] = number;
@@ -413,3 +414,19 @@ console.log(collect.times)
 // console.log(counter());
 // console.log(counter()); // 5
 
+// ✅ Синтаксис функции( метода) внутри объекта
+
+const objWithOutFun = {
+  sourse: false,
+  funcInObj(a, b) {
+    return a + b
+  },
+  funcInObj2() {
+    console.log('0_0')
+  },
+  funcInObj3: function() {
+    console.log()
+  }
+}
+console.log(objWithOutFun.funcInObj(45,16)) // 61
+console.log(objWithOutFun.funcInObj2())

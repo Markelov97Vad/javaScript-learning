@@ -442,4 +442,6 @@ function sumbody(a, b) {
 console.log(sumbody.arguments); // можно вызвать свойство функции
 sumbody.someField = 'value' // можно присвоить значение в поле
 
-
+console.table(sumbody);
+console.dir(sumbody);
+ 
