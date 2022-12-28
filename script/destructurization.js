@@ -102,7 +102,7 @@ const printUserParams = ({ name: nameInUserN , work}, { amount, ...payment }) =>
   console.log( nameInUserN, work);
   console.log(amount, payment);
 };
-console.clear()
+// console.clear()
 printUserParams(userNameInfo, paymentInfo);
 
 // Класс с использование деструктуризации ✅
