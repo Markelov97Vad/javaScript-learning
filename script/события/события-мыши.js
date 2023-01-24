@@ -18,8 +18,9 @@ function getRandomElement(arr) {
   return arr[randomId];
 }
 
-coverHeading.addEventListener('dblclick', () => {
-  coverHeading.textContent = getRandomElement(playListTitles);
+coverHeading.addEventListener('dblclick', (event) => {
+  // coverHeading.textContent = getRandomElement(playListTitles);
+  console.log(event)
 });
 
 // отменит вызов контекстного меню

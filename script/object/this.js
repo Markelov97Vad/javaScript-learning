@@ -30,13 +30,13 @@ globalFunction(); // Window — this ссылается на глобальны�
 
 // ✅
 
-window.hiMyNameIs = 'What?';
+// window.hiMyNameIs = 'What?';
 
-function slimShady() {
-  console.log(this.hiMyNameIs);
-}
+// function slimShady() {
+//   console.log(this.hiMyNameIs);
+// }
 
-slimShady();
+// slimShady();
 
 //       🧰  Явная привязка. Метод bind 🧰
 
@@ -50,6 +50,30 @@ const boundChopVegetables = chopVegetables.bind('🥒');
 boundChopVegetables();
 /*
  Chop 🥒
+*/ 
+//  ✅
+
+const car = {
+  registrationNumber: 'O287AE',
+  brand: 'Tesla'
+};
+
+function displayDetails(ownerName, greeting) {
+  console.log(`${greeting} ${ownerName}`);
+  console.log(`Car info: ${this.registrationNumber} ${this.brand}`);
+}
+
+// создаём новую функцию с привязанным контекстом. Где бы мы ни вызвали функцию boundDisplayDetails, значением this внутри неё всегда будет объект car
+const boundDisplayDetails = displayDetails.bind(car);
+
+// теперь можно вызвать её просто по имени — к ней привязан контекст
+boundDisplayDetails('Matt', 'Hello');
+
+/*
+
+  Hello Matt
+  Car info: O287AE Tesla
+
 */ 
 
 function like() {

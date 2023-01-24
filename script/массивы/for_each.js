@@ -35,12 +35,24 @@ a.forEach(function (item) {
 });
 console.log(b);
 
-const arrSсience = [
-  "Гравитационные силы",
-  "Электромагнитные силы",
-  "Ядерные силы",
-  "Слабые силы",
+// const arrSсience = [
+//   "Гравитационные силы",
+//   "Электромагнитные силы",
+//   "Ядерные силы",
+//   "Слабые силы",
+// ];
+// arrSсiencef.forEach(function (element, index) {
+//   console.log(`${index + 1}. ${element}`);
+// });
+
+const tweets = [
+  'Какой-то странный тред',
+  'Твит, адресованный Илону Маску',
+  'Ответ на инфоповод'
 ];
-arr.forEach(function (element, index) {
-  console.log(`${index + 1}. ${element}`);
-});
+
+function consoleTweet(tweet) {
+    console.log(tweet);
+}
+
+tweets.forEach(consoleTweet);
