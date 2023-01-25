@@ -2,6 +2,8 @@
 //?  catch — если отклонён;
 //?  finally — выполнится в любом случае независимо от статуса промиса.
 
+const { resolve, reject } = require("pinkie");
+
 // Создаём промис
 const newPromise = new Promise(function (resolve, reject) {
   /* Будем определять, обработан запрос
@@ -34,4 +36,63 @@ newPromise
   })
   .finally(function () { // В любом случае
       console.log('Как бы там ни было — запрос мы в глаза видели');
-  }); 
+  });
+
+// const newPromise = new Promise(function (resolve, reject) {
+//   if (true) {
+//     resolve('1');
+//   }
+//    else {
+//   }
+// });
+
+// function firstAction(value) {
+//   return `${value}, два`;
+// }
+
+// function secondAction(value) {
+//   return `${value}, три`;
+// }
+
+// function thirdAction(value) {
+//   console.log(value);
+// }
+
+// newPromise
+// .then(firstAction)
+// .then(secondAction)
+// // .catch(thirdAction);
+
+Promise.resolve('Этот промис исполнен')
+  .then(function (value) {
+    console.log(value); // "Этот промис исполнен"
+  });
+
+Promise.reject('Этот промис отклонён')
+  .catch(function (value) {
+    console.log(value); // "Этот промис отклонён"
+  });
+
+
+// ✅
+const firstPromise = new Promise((resolve, reject) => {
+  if (true) {
+    resolve('first promise')
+  } else {
+    reject();
+  }
+})
+
+const secondPromise = new Promise((resolve, reject) => {
+  if (true) {
+    resolve('second promise')
+  } else {
+    reject();
+  }
+})
+
+const promises = [firstPromise, secondPromise];
+
+Promise.all(promises).then((result) => {
+  console.log(result);
+})
