@@ -1,12 +1,20 @@
-// JavaScript object natation
+// ? JavaScript object natation
+//Объектная запись JavaScript.
 
-console.log(JSON); // JSON {объект...}
+/*
+Строка должна быть JSON-совместимой, то есть:
+  на верхнем уровне должен быть объект или массив;
+  ключи и значения-строки должны быть в двойных кавычках;
+  кроме строк JSON может содержать числовые, булевы значения или null.
+ */
+
+// console.log(JSON); // JSON {объект...}
 
 const objForJSON = {
   first: true,
   second: 100
 }
-// метод stringfly переведет объект в строку
+// метод stringfly переведет объект в формат JSON
 //JSON.stringify(objForJSON);
 const nextStringify = JSON.stringify(objForJSON);
 
@@ -15,6 +23,7 @@ console.log(nextStringify); // {"first":true,"second":100}
 const nextParce = JSON.parse(nextStringify);
 
 console.log(nextParce); // Object { first: true, second: 100 }
+console.log(typeof nextParce); // Object
 
 // ? res.json
 
@@ -29,4 +38,3 @@ fetch('https://praktikum.yandex.ru')
     console.log('ошибка, чтото пошло не так');
   })
 
-addEventListener
