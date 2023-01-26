@@ -68,3 +68,8 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
       'Content-Type': "application/json; charset=UTF-8"
       }
 }).then( res => res.json()).then(json => console.log(`Ответ 2 ${json}`)); // Ответ 2 {title: 'New massage', body: 'context'}
+
+fetch('https://api.kanye.rest')
+    .then(res => {
+    console.log(res.status, res.statusText); // 200 OK
+  });
