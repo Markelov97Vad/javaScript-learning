@@ -8,6 +8,8 @@
 //   console.log(res)
 // })
 
+const { isArrayLikeObject } = require("lodash");
+
 //Второй аргумент — необязательный. Это объект опций. 
 //Чаще всего нужны опции method, headers и body: 
 //они отвечают за метод запроса, его заголовки и тело:
@@ -69,7 +71,28 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
       }
 }).then( res => res.json()).then(json => console.log(`Ответ 2 ${json}`)); // Ответ 2 {title: 'New massage', body: 'context'}
 
+// * Проверка статуса и текста 
 fetch('https://api.kanye.rest')
     .then(res => {
-    console.log(res.status, res.statusText); // 200 OK
+    console.log(res.status, res.statusText, res.ok); // 200 OK true
   });
+
+// * Как получить данные из заголовков
+fetch('https://api.kanye.rest')
+  .then((res) => {
+    console.log(res.headers.get('content-type')); // application/json
+  });
+
+  fetch('https://api.kanye.rest')
+  .then(res => res.json())
+  .then((result) => {
+    console.log(result);
+  });
+
+fetch('https://api.kanye.rest')
+  .then(res => res.text())
+  .then((result) => {
+    console.log(result);
+  });
+
+console.log();
