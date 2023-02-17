@@ -57,3 +57,9 @@ function shortcut(string){
   };
 
 console.log(shortcut('method'));
+
+// for ( let i = 0; i <= 10 ; i++) {
+//   const span = document.createElement('span');
+//   document.body.prepend(span)
+//   span.textContent = 'hello';
+// }

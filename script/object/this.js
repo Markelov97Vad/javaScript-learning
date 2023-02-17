@@ -96,3 +96,15 @@ function createSong(title, artist, releaseYear) {
 
   return newSong;
 }
+
+//? call 
+
+const nameUser = {
+  parName: 'Vadim',
+  funcName (surname) {
+    console.log(`${surname} ${this.parName}`);
+  }
+}
+
+const constNameUser = nameUser.funcName;
+constNameUser.call(nameUser, 'Markelov');
