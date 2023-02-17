@@ -108,3 +108,83 @@ const nameUser = {
 
 const constNameUser = nameUser.funcName;
 constNameUser.call(nameUser, 'Markelov');
+
+// ? apply
+
+const carApply = {
+  registrationNumber: 'O287AE',
+  brand: 'Tesla'
+};
+
+function displayDetails(greeting, ownerName) {
+  console.log(`${greeting} ${ownerName}`);
+  console.log(`Car info: ${this.registrationNumber} ${this.brand}`);
+}
+
+displayDetails.apply(carApply, ['Hello', 'Matt']);
+
+/*
+
+  Hello Matt
+  Car info: O287AE Tesla
+
+*/ 
+
+function Human(name) {
+  this.name = name;
+}
+
+const bob = new Human('Bob');
+
+console.log(bob) // Human { name: 'Bob' }
+
+// https://pictures.s3.yandex.net/resources/JS4_3___1__3_1593431558.jpg
+
+/*
+? Когда функцию вызывают с оператором new, движок автоматически выполняет три действия:
+* Конструирует новый объект.
+* Устанавливает этот объект в значение this для вызванной функции.
+* Возвращает this.
+*/
+
+function Plane(model) {
+  this.model = model;
+
+  return { model: 'TU-134' };
+}
+let asse  = { he: 'офигеть какой самолет'}
+const airbus = new Plane(asse);
+
+console.log(airbus); // { model: 'TU-134' } 
+
+// Поскольку this у стрелочной функции определяется только местом её объявления, 
+//вызов стрелочных функций методами call или apply никак не влияет на значение this.
+
+function Frontender() {
+  this.profession = 'Frontend Developer';
+  this.printProfession = () => {
+     console.log('I am a ' + this.profession);
+  };
+}
+
+const backender = {
+profession: 'Backend Developer'
+};
+
+const frontender = new Frontender();
+
+frontender.printProfession.call(backender); // "I am a Frontend Developer"
+frontender.printProfession.apply(backender); // "I am a Frontend Developer"
+
+const boundPrintProfession = frontender.printProfession.bind(backender);
+
+boundPrintProfession(); // "I am a Frontend Developer"
+
+// Функция-конструктор устанавливает в this созданный объект. 
+// Но у стрелочной функции своего this быть не может, поэтому вызвать с new её нельзя.
+
+const arrowFunction = () => {
+  console.log(this);
+};
+
+//! const obj = new arrowFunction(); // TypeError: arrowFunction is not a constructor
